@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
 
 
-    image = Image.open(r'C:\Users\Lenovo\Downloads\Credit_Card.jpg')
+    image = Image.open('./Credit_Card.jpg')
     st.image(image, use_column_width=True)
 
     st.subheader("Direction of use:")
