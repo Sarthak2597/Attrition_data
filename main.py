@@ -87,10 +87,10 @@ if __name__ == '__main__':
 
     input_lis=[a, b, c, revolving(d),chg_trans_amount(e),total_trans_amt(f),trans_count_12(g),trans_count_chng(h),j]
 
-    classifier_name = st.sidebar.selectbox("Select Classifier (Accuracy denoted in the brackets)",("SVM(92%)","KNN(91%)","Logistic Regression(90%)"))
+    classifier_name = st.sidebar.selectbox("Select Classifier",("SVM","KNN","Logistic Regression"))
 
-    if classifier_name == "SVM(92%)":
-        with open(r"D:\Anaconda\projects\credit card\SVM_Model.pkl", 'rb') as file:
+    if classifier_name == "SVM":
+        with open('./SVM_Model.pkl', 'rb') as file:
             model = pickle.load(file)
 
         arr=numpy.array(input_lis)
@@ -108,8 +108,8 @@ if __name__ == '__main__':
             else:
                 pass
 
-    elif classifier_name == "KNN(91%)":
-        with open(r"D:\Anaconda\projects\credit card\KNN_Model.pkl", 'rb') as file:
+    elif classifier_name == "KNN":
+        with open('./KNN_Model.pkl', 'rb') as file:
             model1 = pickle.load(file)
 
         arr = numpy.array(input_lis)
@@ -127,8 +127,8 @@ if __name__ == '__main__':
             else:
                 pass
 
-    elif classifier_name == "Logistic Regression(90%)":
-        with open(r"D:\Anaconda\projects\credit card\LR_Model.pkl", 'rb') as file:
+    elif classifier_name == "Logistic Regression":
+        with open('./LR_Model.pkl', 'rb') as file:
             model2 = pickle.load(file)
 
 
