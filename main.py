@@ -129,26 +129,23 @@ if __name__=='__main__':
           else:
               pass
 
-  elif classifier_name == "ANN":
-      json_file = open(r"C:\Users\Lenovo\Downloads\model.json", 'r')
-      loaded_model_json = json_file.read()
-      json_file.close()
-      loaded_model = model_from_json(loaded_model_json)
-      loaded_model.load_weights(r"C:\Users\Lenovo\Downloads\model.h5")
+  elif classifier_name == "Logistic Regression":
+      with open(r"D:\Anaconda\projects\credit card\LR_Model.pkl", 'rb') as file:
+          model2 = pickle.load(file)
+
 
       arr = numpy.array(input_lis)
       dff = pandas.DataFrame(arr)
       dff = dff.transpose()
 
-      out = loaded_model.predict(dff)
+      out = model2.predict(dff)
 
-      out_round = round(out[0][0])
 
 
       if st.button('Click to Predict'):
-          if out_round == 1:
+          if out == 1:
               st.header('Possibility: Likely to Discontinue')
-          elif out_round == 0:
+          elif out == 0:
               st.header("Possibility: Likely to Stay")
           else:
               pass
@@ -156,3 +153,4 @@ if __name__=='__main__':
 
 
   st.write("Image Source [link](https://www.timesnownews.com/business-economy/personal-finance/planning-investing/article/lost-your-credit-card-do-this-immediately/620879)")
+  st.write("Application Created by Sarthak Hajirnis")
